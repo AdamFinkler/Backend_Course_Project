@@ -6,7 +6,11 @@
   "scripts": {
     "test": "jest",
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "users": "nodemon users-process.js",
+    "costs": "nodemon costs-process.js",
+    "logs": "nodemon logs-process.js",
+    "about": "nodemon about-process.js"
   },
   "repository": {
     "type": "git",
