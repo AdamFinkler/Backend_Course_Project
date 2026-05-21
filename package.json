@@ -7,10 +7,10 @@
     "test": "jest",
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "users": "nodemon users-process.js",
-    "costs": "nodemon costs-process.js",
-    "logs": "nodemon logs-process.js",
-    "about": "nodemon about-process.js"
+    "users": "nodemon services/users/users-process.js",
+    "costs": "nodemon services/costs/costs-process.js",
+    "logs": "nodemon services/logs/logs-process.js",
+    "about": "nodemon services/about/about-process.js"
   },
   "repository": {
     "type": "git",
