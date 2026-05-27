@@ -126,7 +126,7 @@ function buildReportCosts(costDocuments) {
     { education: grouped.education },
     { health: grouped.health },
     { housing: grouped.housing },
-    { Sport: grouped.sports }
+    { sport: grouped.sports }
   ];
 }
 
