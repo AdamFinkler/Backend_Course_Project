@@ -6,8 +6,10 @@ const {
   validateUserId
 } = require('./users.utils');
 
+
 // validates the data, checks duplicate user, and saves the new user
 async function createUser(userData) {
+
   const validatedUser = validateUserData(userData);
 
   const existingUser = await User.findOne({ id: validatedUser.id });
@@ -35,6 +37,7 @@ async function getAllUsers() {
 
 // returns specific user details and total costs
 async function getUserDetails(id) {
+  
   const userid = validateUserId(id);
 
   const user = await User.findOne({ id: userid });
