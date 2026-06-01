@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// schema for a single cost item stored in the costs collection
 const costSchema = new mongoose.Schema({
   description: {
     type: String,

@@ -4,12 +4,32 @@ const validCategories = ['food', 'health', 'housing', 'sports', 'education'];
 function validateCostData(data) {
   const { description, category, userid, sum } = data;
 
-  if (!description || !category || userid === undefined || sum === undefined) {
-    const error = new Error('Missing required fields');
+  // check that each required field is present
+  if (!description) {
+    const error = new Error('description is required');
     error.id = 'MISSING_FIELDS';
     throw error;
   }
 
+  if (!category) {
+    const error = new Error('category is required');
+    error.id = 'MISSING_FIELDS';
+    throw error;
+  }
+
+  if (userid === undefined) {
+    const error = new Error('userid is required');
+    error.id = 'MISSING_FIELDS';
+    throw error;
+  }
+
+  if (sum === undefined) {
+    const error = new Error('sum is required');
+    error.id = 'MISSING_FIELDS';
+    throw error;
+  }
+
+  // check that each field has the correct type and value
   if (!validCategories.includes(category)) {
     const error = new Error('Invalid category');
     error.id = 'INVALID_CATEGORY';
@@ -31,8 +51,20 @@ function validateCostData(data) {
 
 // checks that id, year, month are present and valid
 function validateReportParams(id, year, month) {
-  if (id === undefined || year === undefined || month === undefined) {
-    const error = new Error('Missing required query parameters');
+  if (id === undefined) {
+    const error = new Error('id is required');
+    error.id = 'MISSING_FIELDS';
+    throw error;
+  }
+
+  if (year === undefined) {
+    const error = new Error('year is required');
+    error.id = 'MISSING_FIELDS';
+    throw error;
+  }
+
+  if (month === undefined) {
+    const error = new Error('month is required');
     error.id = 'MISSING_FIELDS';
     throw error;
   }
@@ -120,7 +152,7 @@ function buildReportCosts(costDocuments) {
     });
   }
 
-  // return in the required order - note that sports is returned as 'Sport'
+  // return categories in the required order as an array of objects
   return [
     { food: grouped.food },
     { education: grouped.education },

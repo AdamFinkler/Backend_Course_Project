@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// schema for a cached monthly report stored in the reports collection
 const reportSchema = new mongoose.Schema({
   userid: {
     type: Number,
