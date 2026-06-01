@@ -1,6 +1,6 @@
-jest.mock("../models/user.model");
-jest.mock("../models/cost.model");
-jest.mock("../models/report.model");
+jest.mock("../../../models/user.model");
+jest.mock("../../../models/cost.model");
+jest.mock("../../../models/report.model");
 
 const User = require("../../../models/user.model");
 const Cost = require("../../../models/cost.model");
