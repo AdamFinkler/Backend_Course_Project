@@ -10,8 +10,8 @@
     "users": "nodemon services/users/users.process.js",
     "costs": "nodemon services/costs/costs.process.js",
     "test:costs": "jest tests/cost.service.test.js tests/cost.router.test.js",
-    "logs": "nodemon services/logs/logs-process.js",
-    "about": "nodemon services/about/about-process.js"
+    "logs": "nodemon services/logs/logs.process.js",
+    "about": "nodemon services/about/about.process.js"
   },
   "repository": {
     "type": "git",
