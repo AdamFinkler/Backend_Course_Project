@@ -1,22 +1,20 @@
 require("dotenv").config();
 const express = require("express");
 const connectDB = require("../../config/db");
-
-// ייבוא הכלים שלנו
-const requestLogger = require("./utils.logger");
+const requestLogger = require("./logs.utils");
 const logsRouter = require("./logs.router");
 
 const app = express();
-app.use(express.json());
 
-// הפעלת כלי הלוגים על כל בקשה שתגיע
+// Apply global request logger middleware
 app.use(requestLogger);
 
-// חיבור הראוטר שיצרנו לכתובת הספציפית
+// Route all '/api/logs' requests to the specific logs router
 app.use("/api/logs", logsRouter);
 
 const PORT = process.env.LOGS_PORT || 3003;
 
+// Connects to the database and starts listening for requests
 async function startServer() {
     await connectDB();
 
@@ -25,4 +23,8 @@ async function startServer() {
     });
 }
 
-startServer();
+if (require.main === module) {
+    startServer();
+}
+
+module.exports = app;

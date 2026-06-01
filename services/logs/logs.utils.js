@@ -2,8 +2,10 @@ const pino = require("pino");
 const logger = pino();
 const LogDB = require("../../models/log.model");
 
+// Middleware to log requests and save them to the database
 const requestLogger = (req, res, next) => {
-  res.on("finish", async () => {
+  // Wait for the response to finish before logging the final status
+  res.on("finish", () => {
     const logData = {
       method: req.method,
       endpoint: req.originalUrl,
@@ -11,15 +13,12 @@ const requestLogger = (req, res, next) => {
       message: `Request processed for ${req.originalUrl}`,
     };
 
-    // תיעוד בקונסולה עם Pino
     logger.info(logData);
 
-    // שמירה למסד הנתונים
-    try {
-      await LogDB.create(logData);
-    } catch (error) {
+    // Attempt to save the log entry, log an error if DB operation fails
+    LogDB.create(logData).catch((error) => {
       logger.error("Failed to save log to MongoDB", error);
-    }
+    });
   });
 
   next();
