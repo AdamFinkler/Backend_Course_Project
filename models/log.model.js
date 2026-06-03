@@ -10,10 +10,12 @@ const logSchema = new mongoose.Schema({
     required: true
   },
   status_code: {
-    type: Number
+    type: Number,
+    required: true
   },
   message: {
-    type: String
+    type: String,
+    required: true
   },
   created_at: {
     type: Date,
@@ -22,3 +24,6 @@ const logSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Log', logSchema);
+
+
+
