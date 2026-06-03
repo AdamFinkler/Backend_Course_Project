@@ -12,7 +12,7 @@ app.use(requestLogger);
 // Route all '/api/logs' requests to the specific logs router
 app.use("/api/logs", logsRouter);
 
-const PORT = process.env.LOGS_PORT || 3003;
+const PORT = process.env.PORT || process.env.LOGS_PORT || 3003;
 
 // Connects to the database and starts listening for requests
 async function startServer() {

@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
   res.json({ message: 'Costs service is running' });
 });
 
-const PORT = process.env.COSTS_PORT || 3002;
+const PORT = process.env.PORT || process.env.COSTS_PORT || 3002;
 
 // Connect to the database and start the server
 async function startServer() {

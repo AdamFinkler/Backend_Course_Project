@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
   });
 });
 
-const PORT = process.env.USERS_PORT || 3001;
+const PORT = process.env.PORT || process.env.USERS_PORT || 3001;
 
 async function startServer() {
   await connectDB();
