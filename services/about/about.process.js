@@ -1,10 +1,10 @@
-require('dotenv').config();
-const express = require('express');
-const connectDB = require('../../config/db');
-const aboutRouter = require('./about.router');
+require("dotenv").config();
+const express = require("express");
+const connectDB = require("../../config/db");
+const aboutRouter = require("./about.router");
 
 // Import the custom request logger middleware
-const requestLogger = require('../logs/logs.utils');
+const requestLogger = require("../logs/logs.utils");
 
 const app = express();
 
@@ -13,11 +13,11 @@ app.use(express.json());
 app.use(requestLogger);
 
 // Mount the about router to handle '/api' requests
-app.use('/api', aboutRouter);
+app.use("/api", aboutRouter);
 
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
   res.json({
-    message: 'About service is running'
+    message: "About service is running",
   });
 });
 
@@ -32,4 +32,8 @@ async function startServer() {
   });
 }
 
-startServer();
+if (require.main === module) {
+  startServer();
+}
+
+module.exports = app;

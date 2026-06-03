@@ -1,11 +1,14 @@
-jest.mock("../config/db", () => jest.fn().mockResolvedValue());
-jest.mock("../models/log.model", () => ({
+jest.mock("../../../config/db", () => jest.fn().mockResolvedValue());
+
+jest.mock("../../../models/log.model", () => ({
   create: jest.fn().mockResolvedValue({}),
 }));
-jest.mock("../services/costs/cost.service");
+
+jest.mock("../cost.service");
 
 const request = require("supertest");
 const app = require("../costs.process");
+
 const { createCost, getMonthlyReport } = require("../cost.service");
 
 describe("cost.router", () => {

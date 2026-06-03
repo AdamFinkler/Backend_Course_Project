@@ -5,11 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test:users": "jest services/users/tests/users.service.test.js services/users/tests/users.router.test.js",
+    "test:costs": "jest services/costs/tests/cost.service.test.js services/costs/tests/cost.router.test.js",
+    "test:about": "jest services/about/tests/about.service.test.js services/about/tests/about.router.test.js",
+    "test:logs": "jest services/logs/tests/logs.service.test.js services/logs/tests/logs.router.test.js",
+    "test:all": "jest",
     "start": "node app.js",
     "dev": "nodemon app.js",
     "users": "nodemon services/users/users.process.js",
     "costs": "nodemon services/costs/costs.process.js",
-    "test:costs": "jest tests/cost.service.test.js tests/cost.router.test.js",
     "logs": "nodemon services/logs/logs.process.js",
     "about": "nodemon services/about/about.process.js"
   },

@@ -23,7 +23,6 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.USERS_PORT || 3001;
 
-// Connect to the database and start the server
 async function startServer() {
   await connectDB();
 
@@ -32,4 +31,8 @@ async function startServer() {
   });
 }
 
-startServer();
+if (require.main === module) {
+  startServer();
+}
+
+module.exports = app;
