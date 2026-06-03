@@ -12,6 +12,10 @@ app.use(requestLogger);
 // Route all '/api/logs' requests to the specific logs router
 app.use("/api/logs", logsRouter);
 
+app.get("/", (req, res) => {
+    res.json({ message: "Logs service is running" });
+});
+
 const PORT = process.env.PORT || process.env.LOGS_PORT || 3003;
 
 // Connects to the database and starts listening for requests
